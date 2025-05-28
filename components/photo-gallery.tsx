@@ -3,32 +3,92 @@ import { Carousel } from "./carousel"
 export function PhotoGallery() {
   const photos = [
     {
-      src: "/couple-beach-sunset.png",
-      alt: "Casal na praia",
-      caption: "Nossa primeira viagem juntos",
+      src: "/img/primeiro-date.png",
+      alt: "Nosso primeiro date",
+      caption: "Nosso primeiro date juntos no finado Harumi",
     },
     {
-      src: "/couple-at-concert.png",
+      src: "/img/alianca.png",
       alt: "Casal em um show",
       caption: "Show inesquecível",
     },
     {
-      src: "/couple-mountain-hike.png",
+      src: "/img/1-ano.png",
       alt: "Casal fazendo trilha",
       caption: "Aventura nas montanhas",
     },
     {
-      src: "/romantic-dinner.png",
+      src: "/img/1-ano-2.png",
       alt: "Jantar romântico",
       caption: "Celebração de 1 ano",
     },
     {
-      src: "/couple-picnic-park.png",
+      src: "/img/ano-novo.png",
       alt: "Piquenique no parque",
       caption: "Tarde de domingo",
     },
     {
-      src: "/couple-cooking-kitchen.png",
+      src: "/img/casa.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/coco-bambu.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/festa-junina.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/gato-de-botas.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/namoro.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/pinacoteca.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/praiou.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/primeiro-date.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/quadro.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/restaurante.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/show.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/van-ghog.png",
+      alt: "Cozinhando juntos",
+      caption: "Nossa primeira receita",
+    },
+    {
+      src: "/img/zoo.png",
       alt: "Cozinhando juntos",
       caption: "Nossa primeira receita",
     },

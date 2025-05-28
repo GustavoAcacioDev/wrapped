@@ -11,7 +11,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "2 Anos de Amor | Nossa História",
   description: "Celebrando 2 anos de namoro com uma playlist de momentos especiais",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,12 +21,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <MusicProvider>
-            <div className="pb-24">{children}</div>
-            <FixedPlayer />
-          </MusicProvider>
-        </ThemeProvider>
+        <MusicProvider>
+          <div>{children}</div>
+          <FixedPlayer />
+        </MusicProvider>
       </body>
     </html>
   )

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { AnimatedElement, AnimatedGroup } from "./animated-element"
+import { maskNumber } from "@/utils/utils"
 
 export function TimeCounter() {
   const [timeElapsed, setTimeElapsed] = useState({
@@ -13,7 +14,7 @@ export function TimeCounter() {
 
   useEffect(() => {
     // Data de início do relacionamento (ajuste para a data real)
-    const startDate = new Date("2023-05-20T00:00:00")
+    const startDate = new Date("2023-06-10T11:30:00")
 
     const calculateTime = () => {
       const now = new Date()
@@ -58,29 +59,29 @@ export function TimeCounter() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
         >
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-3xl lg:text-5xl font-bold text-green-500 mb-2 tabular-nums">
-              {timeElapsed.days}
+            <span className="text-3xl font-bold text-green-500 mb-2 tabular-nums">
+              {maskNumber(timeElapsed.days)}
             </span>
             <span className="text-white text-lg">Dias</span>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-3xl md:text-3xl lg:text-5xl font-bold text-green-500 mb-2 tabular-nums">
-              {timeElapsed.hours}
+            <span className="text-3xl font-bold text-green-500 mb-2 tabular-nums">
+              {maskNumber(timeElapsed.hours)}
             </span>
             <span className="text-white text-lg">Horas</span>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-3xl lg:text-5xl font-bold text-green-500 mb-2 tabular-nums">
-              {timeElapsed.minutes}
+            <span className="text-3xl font-bold text-green-500 mb-2 tabular-nums">
+              {maskNumber(timeElapsed.minutes)}
             </span>
             <span className="text-white text-lg">Minutos</span>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-3xl lg:text-5xl font-bold text-green-500 mb-2 tabular-nums">
-              {timeElapsed.seconds}
+            <span className="text-3xl font-bold text-green-500 mb-2 tabular-nums">
+              {maskNumber(timeElapsed.seconds)}
             </span>
             <span className="text-white text-lg">Segundos</span>
           </div>
