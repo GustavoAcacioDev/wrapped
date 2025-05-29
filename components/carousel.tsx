@@ -15,38 +15,52 @@ interface CarouselProps {
   }[]
   autoPlay?: boolean
   interval?: number
+  currentIndex?: number
+  onIndexChange?: (index: number) => void
 }
 
-export function Carousel({ images, autoPlay = true, interval = 5000 }: CarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+export function Carousel({ 
+  images, 
+  autoPlay = true, 
+  interval = 5000, 
+  currentIndex: externalCurrentIndex,
+  onIndexChange 
+}: CarouselProps) {
+  const [internalCurrentIndex, setInternalCurrentIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+
+  // Use external currentIndex if provided, otherwise use internal state
+  const currentIndex = externalCurrentIndex !== undefined ? externalCurrentIndex : internalCurrentIndex
+  const setCurrentIndex = onIndexChange || setInternalCurrentIndex
 
   const goToNext = useCallback(() => {
     if (isTransitioning) return
 
     setIsTransitioning(true)
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1))
+    const nextIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1
+    setCurrentIndex(nextIndex)
 
     // Reset transition state after animation completes
     setTimeout(() => {
       setIsTransitioning(false)
     }, 500)
-  }, [images.length, isTransitioning])
+  }, [images.length, isTransitioning, currentIndex, setCurrentIndex])
 
   const goToPrevious = useCallback(() => {
     if (isTransitioning) return
 
     setIsTransitioning(true)
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))
+    const prevIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1
+    setCurrentIndex(prevIndex)
 
     // Reset transition state after animation completes
     setTimeout(() => {
       setIsTransitioning(false)
     }, 500)
-  }, [images.length, isTransitioning])
+  }, [images.length, isTransitioning, currentIndex, setCurrentIndex])
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     if (isTransitioning || index === currentIndex) return
 
     setIsTransitioning(true)
@@ -56,7 +70,7 @@ export function Carousel({ images, autoPlay = true, interval = 5000 }: CarouselP
     setTimeout(() => {
       setIsTransitioning(false)
     }, 500)
-  }
+  }, [isTransitioning, currentIndex, setCurrentIndex])
 
   // Auto play functionality
   useEffect(() => {
@@ -131,7 +145,7 @@ export function Carousel({ images, autoPlay = true, interval = 5000 }: CarouselP
               priority={index === 0}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
-              <div className="p-6 text-white">
+              <div className="p-6 pb-12 text-white">
                 <h3 className="text-xl font-bold mb-2">{image.alt}</h3>
                 <p>{image.caption}</p>
               </div>
