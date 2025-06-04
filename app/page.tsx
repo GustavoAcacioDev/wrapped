@@ -8,6 +8,8 @@ import { TimeCounter } from "@/components/time-counter"
 import { HeroSection } from "@/components/hero-section"
 import { AboutUsSection } from "@/components/about-us-section"
 import { AnimatedElement } from "@/components/animated-element"
+import { WelcomeChallenge } from "@/components/challenges/welcome-challenge"
+import { TimeQuiz } from "@/components/challenges/time-quiz"
 
 export default function Home() {
   return (
@@ -17,6 +19,13 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <HeroSection />
+
+        {/* Welcome Challenge */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-2xl">
+            <WelcomeChallenge />
+          </div>
+        </section>
 
         {/* Time Counter Section */}
         <TimeCounter />
@@ -30,16 +39,6 @@ export default function Home() {
             <AnimatedElement type="fade-up" delay={0.2}>
               <MusicPlayer />
             </AnimatedElement>
-          </div>
-        </section>
-
-        {/* Nossa História Section */}
-        <section id="nossa-historia" className="py-16 px-4 bg-zinc-900/50">
-          <div className="container mx-auto">
-            <AnimatedElement type="fade-down">
-              <h2 className="text-3xl font-bold mb-10 text-center">Nossa História</h2>
-            </AnimatedElement>
-            <Timeline />
           </div>
         </section>
 
@@ -85,6 +84,13 @@ export default function Home() {
                 <br />E isso é apenas o começo da nossa história.
               </p>
             </AnimatedElement>
+          </div>
+        </section>
+
+        {/* Time Quiz Challenge */}
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-2xl">
+            <TimeQuiz />
           </div>
         </section>
       </main>

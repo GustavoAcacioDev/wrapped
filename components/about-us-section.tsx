@@ -15,7 +15,7 @@ export function AboutUsSection() {
           <AnimatedElement type="fade-right" duration={0.7}>
             <div>
               <Image
-                src="/happy-couple-portrait.png"
+                src="/img/sitio.png"
                 alt="Foto do casal"
                 width={400}
                 height={400}
@@ -27,18 +27,15 @@ export function AboutUsSection() {
           <AnimatedGroup type="fade-left" stagger={0.2} duration={0.7} className="space-y-4">
             <h3 className="text-2xl font-bold text-green-500">Como Tudo Começou</h3>
             <p className="text-zinc-300">
-              Nos conhecemos em uma festa de amigos em comum. Desde o primeiro momento, houve uma conexão especial entre
-              nós. Conversamos a noite toda sobre música, filmes e sonhos para o futuro.
+              Nos conhecemos em uma festa de amigos em comum. Você com uma trancinha toda toda, já te achei tão linda naquela noite (Só aquela camisa que nada a ve). Mal sabia que ia ter a honra de passar a minha vida inteira ao seu lado.
             </p>
             <h3 className="text-2xl font-bold text-green-500">O Que Nos Une</h3>
             <p className="text-zinc-300">
-              Além do amor que sentimos um pelo outro, compartilhamos a paixão por música, viagens e comida. Nossos
-              finais de semana geralmente envolvem descobrir novos restaurantes ou planejar nossa próxima aventura.
+              Além do nosso amor, amamos passar os dias juntos, ouvir funk enquanto dirijo kkkkk, descobrir restaurantes novos. Basicamente fazer qualquer coisa juntos, até porque a coisa mais chata, se torna prazerosa do seu lado!
             </p>
             <h3 className="text-2xl font-bold text-green-500">Nosso Futuro</h3>
             <p className="text-zinc-300">
-              Juntos, sonhamos em viajar pelo mundo, construir um lar acolhedor e continuar criando memórias que durarão
-              para sempre. Cada dia é uma nova oportunidade para fortalecer ainda mais nosso amor.
+              Tenho certeza que nosso futuro vai ser incrivel. Conhecer o mundo do seu lado é o meu maior sonho! Já imaginou daqui 20 anos? Eu, você, a Analua e a Alcione, todos no sofá assistindo enrolados. Fala sério, PERFEIÇÃO!
             </p>
           </AnimatedGroup>
         </div>

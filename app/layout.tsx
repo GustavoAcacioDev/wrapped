@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 import { MusicProvider } from "@/context/music-context"
 import { FixedPlayer } from "@/components/fixed-player"
+import { JourneyProvider } from "@/context/journey-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <MusicProvider>
-          <div>{children}</div>
-          <FixedPlayer />
-        </MusicProvider>
+          <JourneyProvider>
+            <MusicProvider>
+              <div className="pb-24">{children}</div>
+              <FixedPlayer />
+            </MusicProvider>
+          </JourneyProvider>
       </body>
     </html>
   )
