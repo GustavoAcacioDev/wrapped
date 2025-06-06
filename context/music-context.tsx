@@ -12,6 +12,8 @@ export interface Song {
   durationInSeconds: number
   isLiked: boolean
   audioSrc: string
+  type: "original" | "custom"
+  customNote?: string
 }
 
 interface MusicContextType {
@@ -28,79 +30,143 @@ interface MusicContextType {
   setVolume: (volume: number) => void
   seekTo: (time: number) => void
   toggleLike: (id: number) => void
+  getOriginalSongs: () => Song[]
+  getCustomSongs: () => Song[]
 }
 
 const defaultSongs: Song[] = [
   {
     id: 1,
-    title: "Nossa Música",
-    artist: "Artista Especial",
-    album: "Momentos",
-    duration: "3:30",
-    durationInSeconds: 210,
+    title: "Outra Vida",
+    artist: "Armandinho",
+    album: "2 anos de nós",
+    duration: "4:47",
+    durationInSeconds: 287,
     isLiked: true,
-    audioSrc: "/music/nossa-musica.mp3",
+    audioSrc: "/songs/outra-vida.mp3",
+    type: "original",
+  },
+  {
+    id: 1.1,
+    title: "Outra Vida",
+    artist: "Gustavinho",
+    album: "2 anos de nós",
+    duration: "2:40",
+    durationInSeconds: 160,
+    isLiked: true,
+    audioSrc: "/songs/outra-vida-eu.mp3",
+    type: "custom",
   },
   {
     id: 2,
-    title: "Primeiro Encontro",
-    artist: "Cantor Romântico",
-    album: "Amor à Primeira Vista",
-    duration: "4:15",
-    durationInSeconds: 255,
+    title: "Analua",
+    artist: "Armandinho",
+    album: "2 anos de nós",
+    duration: "4:33",
+    durationInSeconds: 273,
     isLiked: true,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
+    audioSrc: "/songs/analua.mp3",
+    type: "original",
   },
   {
     id: 3,
-    title: "Noite Estrelada",
-    artist: "Banda Melodia",
-    album: "Sob o Céu",
-    duration: "3:45",
-    durationInSeconds: 225,
+    title: "Cor de Marte",
+    artist: "ANAVITORIA",
+    album: "2 anos de nós",
+    duration: "3:12",
+    durationInSeconds: 192,
     isLiked: true,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
+    audioSrc: "/songs/cor-de-marte.mp3",
+    type: "original",
+  },
+  {
+    id: 3.1,
+    title: "Cor de Marte",
+    artist: "GUSTAVITORIA",
+    album: "2 anos de nós",
+    duration: "2:53",
+    durationInSeconds: 173,
+    isLiked: true,
+    audioSrc: "/songs/cor-de-marte-eu.mp3",
+    type: "custom",
   },
   {
     id: 4,
-    title: "Viagem de Verão",
-    artist: "Os Viajantes",
-    album: "Destinos",
-    duration: "3:20",
-    durationInSeconds: 200,
+    title: "Um Amor Puro",
+    artist: "Djavan",
+    album: "2 anos de nós",
+    duration: "5:28",
+    durationInSeconds: 328,
     isLiked: false,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
+    audioSrc: "/songs/amor-puro.mp3", 
+    type: "original",
   },
   {
     id: 5,
-    title: "Jantar à Luz de Velas",
-    artist: "Trio Romântico",
-    album: "Momentos Especiais",
-    duration: "4:05",
-    durationInSeconds: 245,
+    title: "Exagerado",
+    artist: "Cazuza",
+    album: "2 anos de nós",
+    duration: "3:42",
+    durationInSeconds: 222,
     isLiked: true,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
+    audioSrc: "/songs/exagerado.mp3", 
+    type: "original",
+  },
+  {
+    id: 5.1,
+    title: "Exagerado",
+    artist: "Guzuza",
+    album: "2 anos de nós",
+    duration: "1:52",
+    durationInSeconds: 112,
+    isLiked: true,
+    audioSrc: "/songs/exagerado-eu.mp3", 
+    type: "custom",
   },
   {
     id: 6,
-    title: "Dança Comigo",
-    artist: "DJ Amor",
-    album: "Batidas do Coração",
-    duration: "3:55",
-    durationInSeconds: 235,
+    title: "Mimar Você",
+    artist: "Caetano Veloso",
+    album: "2 anos de nós",
+    duration: "3:06",
+    durationInSeconds: 186,
     isLiked: false,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
+    audioSrc: "/songs/mimar-vc.mp3",
+    type: "original",
+  },
+  {
+    id: 6.1,
+    title: "Mimar Você",
+    artist: "Gustavo Veloso",
+    album: "2 anos de nós",
+    duration: "1:00",
+    durationInSeconds: 60,
+    isLiked: false,
+    audioSrc: "/songs/mimar-vc-eu.mp3",
+    type: "custom",
   },
   {
     id: 7,
-    title: "Para Sempre Nós",
-    artist: "Artista Especial",
-    album: "Eternidade",
-    duration: "5:10",
-    durationInSeconds: 310,
+    title: "Partilhar",
+    artist: "Rubel",
+    album: "2 anos de nós",
+    duration: "5:37",
+    durationInSeconds: 337,
     isLiked: true,
-    audioSrc: "/music/nossa-musica.mp3", // Usando a mesma música para demonstração
-  },
+    audioSrc: "/songs/partilhar.mp3", 
+    type: "original",
+  }, 
+  {
+    id: 7.1,
+    title: "Partilhar",
+    artist: "Gustavel",
+    album: "2 anos de nós",
+    duration: "1:27",
+    durationInSeconds: 87,
+    isLiked: true,
+    audioSrc: "/songs/partilhar-eu.mp3", 
+    type: "custom",
+  }, 
 ]
 
 const MusicContext = createContext<MusicContextType | undefined>(undefined)
@@ -218,6 +284,14 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
     setSongs((prevSongs) => prevSongs.map((song) => (song.id === id ? { ...song, isLiked: !song.isLiked } : song)))
   }
 
+  const getOriginalSongs = () => {
+    return songs.filter((song) => song.type === "original")
+  }
+
+  const getCustomSongs = () => {
+    return songs.filter((song) => song.type === "custom")
+  }
+
   return (
     <MusicContext.Provider
       value={{
@@ -234,6 +308,8 @@ export function MusicProvider({ children }: { children: React.ReactNode }) {
         setVolume,
         seekTo,
         toggleLike,
+        getOriginalSongs,
+        getCustomSongs,
       }}
     >
       {children}

@@ -37,17 +37,14 @@ export function AnimatedElement({
           "opacity-0": !isInView,
           "opacity-100": isInView,
           "translate-y-8": !isInView && type === "fade-up",
-          "translate-y-0": isInView && type === "fade-up",
+          "translate-y-0": isInView && type === "fade-up" || type === "fade-down",
           "translate-y-[-2rem]": !isInView && type === "fade-down",
-          "translate-y-0": isInView && type === "fade-down",
           "translate-x-[-2rem]": !isInView && type === "fade-left",
-          "translate-x-0": isInView && type === "fade-left",
+          "translate-x-0": isInView && type === "fade-left" || type === "fade-right",
           "translate-x-8": !isInView && type === "fade-right",
-          "translate-x-0": isInView && type === "fade-right",
           "scale-95": !isInView && type === "zoom-in",
-          "scale-100": isInView && type === "zoom-in",
+          "scale-100": isInView && type === "zoom-in" || type === "zoom-out",
           "scale-105": !isInView && type === "zoom-out",
-          "scale-100": isInView && type === "zoom-out",
         },
         className,
       )}
@@ -79,22 +76,21 @@ export function AnimatedGroup({
 
         return (
           <div
-            className={cn("transition-all", {
-              "opacity-0": !isInView,
-              "opacity-100": isInView,
-              "translate-y-8": !isInView && type === "fade-up",
-              "translate-y-0": isInView && type === "fade-up",
-              "translate-y-[-2rem]": !isInView && type === "fade-down",
-              "translate-y-0": isInView && type === "fade-down",
-              "translate-x-[-2rem]": !isInView && type === "fade-left",
-              "translate-x-0": isInView && type === "fade-left",
-              "translate-x-8": !isInView && type === "fade-right",
-              "translate-x-0": isInView && type === "fade-right",
-              "scale-95": !isInView && type === "zoom-in",
-              "scale-100": isInView && type === "zoom-in",
-              "scale-105": !isInView && type === "zoom-out",
-              "scale-100": isInView && type === "zoom-out",
-            })}
+            className={cn("transition-all",
+              {
+                "opacity-0": !isInView,
+                "opacity-100": isInView,
+                "translate-y-8": !isInView && type === "fade-up",
+                "translate-y-0": isInView && type === "fade-up" || type === "fade-down",
+                "translate-y-[-2rem]": !isInView && type === "fade-down",
+                "translate-x-[-2rem]": !isInView && type === "fade-left",
+                "translate-x-0": isInView && type === "fade-left" || type === "fade-right",
+                "translate-x-8": !isInView && type === "fade-right",
+                "scale-95": !isInView && type === "zoom-in",
+                "scale-100": isInView && type === "zoom-in" || type === "zoom-out",
+                "scale-105": !isInView && type === "zoom-out",
+              },
+            )}
             style={{
               transitionDuration: `${duration}s`,
               transitionDelay: `${index * stagger}s`,

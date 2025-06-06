@@ -49,7 +49,7 @@ const photos = [
     caption: "Muito demais isso, a gente começou a namorar, e fomos pra praia juntos!!!!!!! ISSO É INCRIVEL",
   },
   {
-    src: "/img/aniversario.png",
+    src: "/img/aniversario.jpg",
     alt: "Niversario da minha momolada linda",
     caption: "Voce é tão linda vidinha, serio olha essa obra de arte, menina bonita do caramba, te amo!",
   },
@@ -94,7 +94,7 @@ const photos = [
     caption: "Mais uma foto pro album da familia",
   },
   {
-    src: "/img/praia-ano-novo.png",
+    src: "/img/praia-ano-novo.JPG",
     alt: "Foto antes de dar mta merda kkkkkkkk",
     caption: "Eu preciso aprender a tirar foto, olha essa postura que coisa feia",
   },
@@ -114,7 +114,7 @@ const photos = [
     caption: "Po, a pizza de costela hmmmmm",
   },
   {
-    src: "/img/ceret.png",
+    src: "/img/ceret.jpg",
     alt: "Nós no ceret bem divos",
     caption: "Foi bem gostosinha essa tarde. Amei mucho",
   },
